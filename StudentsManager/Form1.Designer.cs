@@ -31,15 +31,24 @@
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            button1 = new Button();
+            button1.Location = new Point(0, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Dock = DockStyle.Left;
+
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(800, 450);
-            dataGridView1.TabIndex = 0;
+            // dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            // dataGridView1.Dock = DockStyle.Fill;
+            // dataGridView1.Location = new Point(0, 0);
+            // dataGridView1.Name = "dataGridView1";
+            // dataGridView1.Size = new Size(800, 450);
+            // dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -56,5 +65,6 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private Button button1;
     }
 }

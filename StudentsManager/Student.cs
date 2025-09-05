@@ -1,11 +1,11 @@
 namespace StudentsManager;
 
-public class User
+public class Student
 {
-    public string Name { get; set; }
     public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
     public int Age { get; set; }
     public int Group { get; set; }
     public float AverageScore { get; set; }
-    public DateTime DateReceipt { get; set; }
+    public DateTime AdmissionDate { get; set; }
 }

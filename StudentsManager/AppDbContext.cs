@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace StudentsManager
 {
-    class UserContext : DbContext
+    class AppDbContext : DbContext
     {
-        public UserContext()
-            : base("DbConnection")
-        { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=students.db");
+        }
+        public AppDbContext()
+            : base()
+        {
+            Database.EnsureCreated();
+        }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
+
 }
