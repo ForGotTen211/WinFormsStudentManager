@@ -1,4 +1,4 @@
-namespace StudentsManager
+ namespace StudentsManager
 {
     internal static class Program
     {
