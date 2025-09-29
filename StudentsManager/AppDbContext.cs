@@ -19,7 +19,6 @@ namespace StudentsManager
             Database.EnsureCreated();
         }
         
-       
 
         public DbSet<Student> Students { get; set; }
     }

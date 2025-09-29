@@ -19,5 +19,6 @@ namespace StudentsManager
             _bindingSource.DataSource = _db.Students.Local;
             dataGridView1.DataSource = _bindingSource;
         }
+
     }
 }
