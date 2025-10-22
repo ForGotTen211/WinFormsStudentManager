@@ -7,5 +7,5 @@ public class Student
     public int Age { get; set; }
     public int Group { get; set; }
     public float AverageScore { get; set; }
-    public DateTime AdmissionDate { get; set; }
+    public DateTime AdmissionDate { get; set; } = DateTime.Now;
 }

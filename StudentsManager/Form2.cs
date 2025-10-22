@@ -12,19 +12,36 @@ namespace StudentsManager
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private Student _student;
+
+        public Form2(Student? student = null)
         {
             InitializeComponent();
+            if (student != null)
+            {
+                textBox1.Text = student.Name;
+                textBox2.Text = student.Age.ToString();
+                textBox3.Text = student.Group.ToString();
+                textBox4.Text = student.AverageScore.ToString();
+                textBox5.Text = student.AdmissionDate.ToString();
+            }
+            else
+            {
+                _student = new Student();
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            using var db = new AppDbContext();
+            _student.Name = textBox1.Text;
+            _student.Name = textBox1.Text;
+            _student.Name = textBox1.Text;
+            _student.Name = textBox1.Text;
+            _student.Name = textBox1.Text;
 
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
+            db.Students.Add(_student);
+            db.SaveChanges();
         }
     }
 }
