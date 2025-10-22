@@ -6,19 +6,48 @@ namespace StudentsManager
 {
     public partial class Form1 : Form
     {
-        private AppDbContext _db = new();
         private BindingSource _bindingSource = new();
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            _db.Students.Load();
-            _bindingSource.DataSource = _db.Students.Local;
+            var db = new AppDbContext();
+            db.Students.Load();
+            _bindingSource.DataSource = db.Students.Local.ToBindingList();
             dataGridView1.DataSource = _bindingSource;
+            dataGridView1.SelectionChanged += OnSelectionChanged;
         }
 
+        private void OnSelectionChanged(object? sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(db.Students.First().Name);
+            Form2 form2 = new();
+            form2.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var db = new AppDbContext();
+
+            Student student = new()
+            {
+                Name = "misha",
+                Age = 18,
+                Group = 52,
+                AverageScore = 1488,
+                AdmissionDate = DateTime.Now,
+            };
+            db.Add(student);
+            db.SaveChanges();
+            _bindingSource.Add(student);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
