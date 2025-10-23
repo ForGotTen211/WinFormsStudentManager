@@ -10,38 +10,37 @@ using System.Windows.Forms;
 
 namespace StudentsManager
 {
-    public partial class Form2 : Form
+    public partial class StudentChangeForm : Form
     {
         private Student _student;
+        public event Action<Student> OnStudentChanged = s => {};
 
-        public Form2(Student? student = null)
+        public StudentChangeForm(Student? student = null)
         {
             InitializeComponent();
             if (student != null)
             {
-                textBox1.Text = student.Name;
-                textBox2.Text = student.Age.ToString();
-                textBox3.Text = student.Group.ToString();
-                textBox4.Text = student.AverageScore.ToString();
-                textBox5.Text = student.AdmissionDate.ToString();
+                _nameBox.Text = student.Name;
+                _ageBox.Text = student.Age.ToString();
+                _groupBox.Text = student.Group.ToString();
+                _averageBox.Text = student.AverageScore.ToString();
+                _addmissionDateBox.Text = student.AdmissionDate.ToString();
             }
-            else
-            {
-                _student = new Student();
-            }
+            _student = student ?? new Student();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             using var db = new AppDbContext();
-            _student.Name = textBox1.Text;
-            _student.Name = textBox1.Text;
-            _student.Name = textBox1.Text;
-            _student.Name = textBox1.Text;
-            _student.Name = textBox1.Text;
+            
+            _student.Name = _nameBox.Text;
+            _student.Age = int.Parse(_ageBox.Text);
+            _student.Group = int.Parse(_groupBox.Text);
+            _student.AverageScore = int.Parse(_averageBox.Text);
+            _student.AdmissionDate = DateTime.Parse(_addmissionDateBox.Text);
 
-            db.Students.Add(_student);
-            db.SaveChanges();
+            OnStudentChanged(_student);
+            Close();
         }
     }
 }

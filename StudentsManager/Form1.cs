@@ -7,10 +7,12 @@ namespace StudentsManager
     public partial class Form1 : Form
     {
         private BindingSource _bindingSource = new();
+        private Student? _selectedStudent = null;
+
         public Form1()
         {
             InitializeComponent();
-            var db = new AppDbContext();
+            using var db = new AppDbContext();
             db.Students.Load();
             _bindingSource.DataSource = db.Students.Local.ToBindingList();
             dataGridView1.DataSource = _bindingSource;
@@ -19,18 +21,15 @@ namespace StudentsManager
 
         private void OnSelectionChanged(object? sender, EventArgs e)
         {
+            var rows = dataGridView1.SelectedRows;
+            if (rows.Count == 0)
+                return;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show(db.Students.First().Name);
-            Form2 form2 = new();
-            form2.ShowDialog();
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var db = new AppDbContext();
+            using var db = new AppDbContext();
 
             Student student = new()
             {
@@ -44,16 +43,30 @@ namespace StudentsManager
             db.SaveChanges();
             _bindingSource.Add(student);
         }
-
-        private void button3_Click(object sender, EventArgs e)
+            
+        private void button2_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new();
+            //MessageBox.Show(db.Students.First().Name);
+            StudentChangeForm form2 = new();
+            form2.OnStudentChanged += (student) =>
+            {
+                using var db = new AppDbContext();
+                db.Students.Update(student);
+                db.SaveChanges();
+            };
             form2.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            StudentChangeForm form2 = new();
+            form2.OnStudentChanged += (student) =>
+            {
+                using var db = new AppDbContext();
+                db.Students.Add(student);
+                db.SaveChanges();
+            };
+            form2.ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace StudentsManager
 {
-    partial class Form2
+    partial class StudentChangeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            _nameBox = new TextBox();
+            _ageBox = new TextBox();
+            _groupBox = new TextBox();
+            _averageBox = new TextBox();
+            _addmissionDateBox = new TextBox();
             printDialog1 = new PrintDialog();
             printDialog2 = new PrintDialog();
             printDialog3 = new PrintDialog();
@@ -49,38 +49,38 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 18);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            _nameBox.Location = new Point(3, 18);
+            _nameBox.Name = "textBox1";
+            _nameBox.Size = new Size(100, 23);
+            _nameBox.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(3, 62);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            _ageBox.Location = new Point(3, 62);
+            _ageBox.Name = "textBox2";
+            _ageBox.Size = new Size(100, 23);
+            _ageBox.TabIndex = 1;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(3, 106);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
+            _groupBox.Location = new Point(3, 106);
+            _groupBox.Name = "textBox3";
+            _groupBox.Size = new Size(100, 23);
+            _groupBox.TabIndex = 2;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(109, 18);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 3;
+            _averageBox.Location = new Point(109, 18);
+            _averageBox.Name = "textBox4";
+            _averageBox.Size = new Size(100, 23);
+            _averageBox.TabIndex = 3;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(109, 62);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 4;
+            _addmissionDateBox.Location = new Point(109, 62);
+            _addmissionDateBox.Name = "textBox5";
+            _addmissionDateBox.Size = new Size(100, 23);
+            _addmissionDateBox.TabIndex = 4;
             // 
             // printDialog1
             // 
@@ -125,15 +125,15 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Controls.Add(_nameBox);
             flowLayoutPanel1.Controls.Add(label2);
-            flowLayoutPanel1.Controls.Add(textBox2);
+            flowLayoutPanel1.Controls.Add(_ageBox);
             flowLayoutPanel1.Controls.Add(label3);
-            flowLayoutPanel1.Controls.Add(textBox3);
+            flowLayoutPanel1.Controls.Add(_groupBox);
             flowLayoutPanel1.Controls.Add(label4);
-            flowLayoutPanel1.Controls.Add(textBox4);
+            flowLayoutPanel1.Controls.Add(_averageBox);
             flowLayoutPanel1.Controls.Add(label5);
-            flowLayoutPanel1.Controls.Add(textBox5);
+            flowLayoutPanel1.Controls.Add(_addmissionDateBox);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(377, 285);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -194,11 +194,11 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox _nameBox;
+        private TextBox _ageBox;
+        private TextBox _groupBox;
+        private TextBox _averageBox;
+        private TextBox _addmissionDateBox;
         private PrintDialog printDialog1;
         private PrintDialog printDialog2;
         private PrintDialog printDialog3;
